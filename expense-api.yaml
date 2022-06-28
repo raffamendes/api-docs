@@ -3,8 +3,11 @@ openapi: 3.0.2
 info:
     title: expenseAPI
     version: 1.0.0
+    contact: {}
 paths:
     /expense:
+        summary: Root path to basic crud Operations
+        description: 'Root path that will include the GetAll, Post, DeleteAll and PUT operations for expenses'
         get:
             responses:
                 '200':
@@ -29,6 +32,27 @@ paths:
             operationId: '1'
             summary: Get all Expenses
             description: Get Path to retrieve all expenses as a list
+        post:
+            requestBody:
+                description: Objeto Expense com todos os campos obrigatórios preenchidos
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/expense'
+                        examples:
+                            request-body-post:
+                                value:
+                                    type: market
+                                    amount: 100
+                required: true
+            responses:
+                '201':
+                    description: Objeto Criado com Sucesso
+                '500':
+                    description: 'Erro interno ao salvar expense, favor tentar novamente em outro horário'
+            operationId: '2'
+            summary: Create new Expense
+            description: Operation to create new Expense
 components:
     schemas:
         expense:
@@ -44,4 +68,3 @@ components:
             example:
                 type: market
                 amount: 10.5
-
