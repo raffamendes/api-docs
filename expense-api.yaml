@@ -1,4 +1,3 @@
----
 openapi: 3.0.2
 info:
     title: expenseAPI
@@ -53,6 +52,35 @@ paths:
             operationId: '2'
             summary: Create new Expense
             description: Operation to create new Expense
+    '/expense/{id}':
+        summary: Operações Especificas para um único expense
+        description: Operações de GET e DELETE para um único expense
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/expense'
+                            examples:
+                                example-get-unico:
+                                    value:
+                                        type: some text
+                                        amount: 11.84
+                    description: Get expense único
+            summary: Get expense único
+            description: Operação get para expense único
+        parameters:
+            -
+                examples:
+                    exemplo-id:
+                        value: '1'
+                name: id
+                description: id único do expense
+                schema:
+                    type: integer
+                in: path
+                required: true
 components:
     schemas:
         expense:
