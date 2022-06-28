@@ -1,0 +1,47 @@
+---
+openapi: 3.0.2
+info:
+    title: expenseAPI
+    version: 1.0.0
+paths:
+    /expense:
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/expense'
+                            examples:
+                                get all list:
+                                    value:
+                                        -
+                                            id: 1
+                                            type: market
+                                            amount: 10.5
+                                        -
+                                            id: 2
+                                            type: pharmacy
+                                            amount: 100
+                    description: Ok Response for successfull calls
+            operationId: '1'
+            summary: Get all Expenses
+            description: Get Path to retrieve all expenses as a list
+components:
+    schemas:
+        expense:
+            title: Root Type for expense
+            description: Expense Object for CRUD
+            type: object
+            properties:
+                type:
+                    type: string
+                amount:
+                    format: double
+                    type: number
+            example:
+                type: market
+                amount: 10.5
+
