@@ -85,7 +85,16 @@ paths:
                     required: true
             responses:
                 '200':
-                    $ref: '#/components/responses/OKResponseForSingleExpenseOperations'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/expense'
+                            examples:
+                                get single expense:
+                                    value:
+                                        type: some text
+                                        amount: 8.98
+                    description: Ok response for a single expense
             operationId: '10'
             summary: GET expense by ID
             description: Get Operation to find a expense by its ID
@@ -104,15 +113,3 @@ components:
             example:
                 type: market
                 amount: 10.5
-    responses:
-        OKResponseForSingleExpenseOperations:
-            content:
-                application/json:
-                    schema:
-                        $ref: '#/components/schemas/expense'
-                    examples:
-                        ok-response:
-                            value:
-                                type: some text
-                                amount: 76.81
-            description: Ok response for single expense operations
