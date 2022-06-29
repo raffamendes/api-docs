@@ -55,7 +55,7 @@ paths:
                                     value:
                                         type: some text
                                         amount: 83.19
-                    description: Objeto Criado com Sucesso
+                    description: Expense succesfully created
                 '500':
                     content:
                         text/xml:
@@ -64,7 +64,7 @@ paths:
                             examples:
                                 post-error:
                                     value: '"some text"'
-                    description: 'Erro interno ao salvar expense, favor tentar novamente em outro horário'
+                    description: Internal server error on saving the expense
             operationId: '2'
             summary: Create new Expense
             description: Operation to create new Expense
