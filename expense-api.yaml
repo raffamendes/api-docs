@@ -106,8 +106,8 @@ paths:
                             schema:
                                 type: string
                             examples:
-                                deleted:
-                                    value: '"expense deleted"'
+                                find-id:
+                                    value: '"deleted"'
                     description: Expense deleted
             operationId: '20'
             summary: Delete by ID
