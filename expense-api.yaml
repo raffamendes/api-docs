@@ -52,10 +52,21 @@ paths:
             operationId: '2'
             summary: Create new Expense
             description: Operation to create new Expense
-    '/expense/{id}':
+    /expense/{id}:
         summary: Operações Especificas para um único expense
         description: Operações de GET e DELETE para um único expense
         get:
+            parameters:
+                -
+                    examples:
+                        exemplo-id:
+                            value: '1'
+                    name: id
+                    description: id único do expense
+                    schema:
+                        type: integer
+                    in: path
+                    required: true
             responses:
                 '200':
                     content:
@@ -68,6 +79,7 @@ paths:
                                         type: some text
                                         amount: 11.84
                     description: Get expense único
+            operationId: '10'
             summary: Get expense único
             description: Operação get para expense único
         parameters:
