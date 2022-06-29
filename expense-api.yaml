@@ -75,8 +75,8 @@ paths:
             parameters:
                 -
                     examples:
-                        exemplo-id:
-                            value: '1'
+                        find-id:
+                            value: '29'
                     name: id
                     description: expense ID
                     schema:
@@ -90,10 +90,10 @@ paths:
                             schema:
                                 $ref: '#/components/schemas/expense'
                             examples:
-                                get single expense:
+                                find-id:
                                     value:
                                         type: some text
-                                        amount: 8.98
+                                        amount: 6.26
                     description: Ok response for a single expense
             operationId: '10'
             summary: GET expense by ID
@@ -115,8 +115,8 @@ paths:
         parameters:
             -
                 examples:
-                    expense-id:
-                        value: '13'
+                    find-id:
+                        value: '47'
                 name: id
                 description: id for the expense
                 schema:
