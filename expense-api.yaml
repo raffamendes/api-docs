@@ -98,6 +98,31 @@ paths:
             operationId: '10'
             summary: GET expense by ID
             description: Get Operation to find a expense by its ID
+        delete:
+            responses:
+                '200':
+                    content:
+                        text/xml:
+                            schema:
+                                type: string
+                            examples:
+                                deleted:
+                                    value: '"expense deleted"'
+                    description: Expense deleted
+            operationId: '20'
+            summary: Delete by ID
+            description: Delete a single expense by the id
+        parameters:
+            -
+                examples:
+                    expense-id:
+                        value: '13'
+                name: id
+                description: id for the expense
+                schema:
+                    type: integer
+                in: path
+                required: true
 components:
     schemas:
         expense:
