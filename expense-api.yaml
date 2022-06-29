@@ -123,6 +123,39 @@ paths:
                     type: integer
                 in: path
                 required: true
+    '/expense/{id}/{id2}':
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/expense'
+                            examples:
+                                findid:
+                                    value:
+                                        type: some text
+                                        amount: 41.72
+                    description: teste
+        parameters:
+            -
+                examples:
+                    findid:
+                        value: '31'
+                name: id
+                schema:
+                    type: integer
+                in: path
+                required: true
+            -
+                examples:
+                    findid:
+                        value: '15'
+                name: id2
+                schema:
+                    type: integer
+                in: path
+                required: true
 components:
     schemas:
         expense:
