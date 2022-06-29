@@ -1,101 +1,99 @@
----
 openapi: 3.0.2
 info:
-  title: expenseAPI
-  version: 1.0.0
-  contact: {}
+    title: expenseAPI
+    version: 1.0.0
+    contact: {}
 paths:
-  /expense:
-    summary: Root path to basic crud Operations
-    description: >-
-      Root path that will include the GetAll, Post, DeleteAll and PUT operations
-      for expenses
-    get:
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/expense'
-              examples:
-                get all list:
-                  value:
-                    - id: 1
-                      type: market
-                      amount: 10.5
-                    - id: 2
-                      type: pharmacy
-                      amount: 100
-          description: Ok Response for successfull calls
-      operationId: '1'
-      summary: Get all Expenses
-      description: Get Path to retrieve all expenses as a list
-    post:
-      requestBody:
-        description: Objeto Expense com todos os campos obrigatórios preenchidos
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/expense'
-            examples:
-              request-body-post:
-                value:
-                  type: market
-                  amount: 100
-        required: true
-      responses:
-        '201':
-          description: Objeto Criado com Sucesso
-        '500':
-          description: >-
-            Erro interno ao salvar expense, favor tentar novamente em outro
-            horário
-      operationId: '2'
-      summary: Create new Expense
-      description: Operation to create new Expense
-  '/expense/{id}':
-    summary: Operações Especificas para um único expense
-    description: Operações de GET e DELETE para um único expense
-    get:
-      parameters:
-        - examples:
-            exemplo-id:
-              value: '1'
-          name: id
-          description: id único do expense
-          schema:
-            type: integer
-          in: path
-          required: true
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/expense'
-              examples:
-                example-get-unico:
-                  value:
-                    type: some text
-                    amount: 11.84
-          description: Get expense único
-      operationId: '10'
-      summary: Get expense único
-      description: Operação get para expense único
+    /expense:
+        summary: Root path to basic crud Operations
+        description: 'Root path that will include the GetAll, Post, DeleteAll and PUT operations for expenses'
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/expense'
+                            examples:
+                                get all list:
+                                    value:
+                                        -
+                                            id: 1
+                                            type: market
+                                            amount: 10.5
+                                        -
+                                            id: 2
+                                            type: pharmacy
+                                            amount: 100
+                    description: Ok Response for successfull calls
+            operationId: '1'
+            summary: Get all Expenses
+            description: Get Path to retrieve all expenses as a list
+        post:
+            requestBody:
+                description: Objeto Expense com todos os campos obrigatórios preenchidos
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/expense'
+                        examples:
+                            request-body-post:
+                                value:
+                                    type: market
+                                    amount: 100
+                required: true
+            responses:
+                '201':
+                    description: Objeto Criado com Sucesso
+                '500':
+                    description: 'Erro interno ao salvar expense, favor tentar novamente em outro horário'
+            operationId: '2'
+            summary: Create new Expense
+            description: Operation to create new Expense
+    '/expense/{id}':
+        summary: Specific Operations for a single expense
+        description: GET and DELETE operations for a single expense by its id
+        get:
+            parameters:
+                -
+                    examples:
+                        exemplo-id:
+                            value: '1'
+                    name: id
+                    description: expense ID
+                    schema:
+                        type: integer
+                    in: path
+                    required: true
+            responses:
+                '200':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/expense'
+                            examples:
+                                example-get-unico:
+                                    value:
+                                        type: some text
+                                        amount: 11.84
+                    description: Get Expense by ID
+            operationId: '10'
+            summary: GET expense by ID
+            description: Get Operation to find a expense by its ID
 components:
-  schemas:
-    expense:
-      title: Root Type for expense
-      description: Expense Object for CRUD
-      type: object
-      properties:
-        type:
-          type: string
-        amount:
-          format: double
-          type: number
-      example:
-        type: market
-        amount: 10.5
+    schemas:
+        expense:
+            title: Root Type for expense
+            description: Expense Object for CRUD
+            type: object
+            properties:
+                type:
+                    type: string
+                amount:
+                    format: double
+                    type: number
+            example:
+                type: market
+                amount: 10.5
