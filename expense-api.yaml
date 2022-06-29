@@ -46,8 +46,24 @@ paths:
                 required: true
             responses:
                 '201':
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/expense'
+                            examples:
+                                post-ok:
+                                    value:
+                                        type: some text
+                                        amount: 83.19
                     description: Objeto Criado com Sucesso
                 '500':
+                    content:
+                        text/xml:
+                            schema:
+                                type: string
+                            examples:
+                                post-error:
+                                    value: '"some text"'
                     description: 'Erro interno ao salvar expense, favor tentar novamente em outro horário'
             operationId: '2'
             summary: Create new Expense
